@@ -1,3 +1,6 @@
 <div class="page-header">
+  <div class="pull-right">
+    <%= link_to "Edit Person", edit_person_path(@person), class: "pull-right btn btn-info" %>
+  </div>
   <h1><%= @person.title %> <%= @person.first_name %> <%= @person.last_name %></h1>
 </div>

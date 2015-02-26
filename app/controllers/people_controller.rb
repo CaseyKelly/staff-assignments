@@ -1,4 +1,5 @@
 class PeopleController < ApplicationController
+  before_action :set_person, only: [:show, :edit, :update, :destroy]
 
   def index
     @people = Person.all
@@ -9,7 +10,9 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.find(params[:id])
+  end
+
+  def edit
   end
 
   def create
@@ -20,5 +23,23 @@ class PeopleController < ApplicationController
       render :new
     end
   end
+
+  def update
+    if @person.update(person_params)
+      redirect_to people_path, notice: 'Person was updated.'
+    else
+      render :edit
+    end
+  end
+
+  private
+
+    def set_person
+      @person = Person.find(params[:id])
+    end
+
+    def person_params
+      params.require(:person).permit(:title, :first_name, :last_name)
+    end
 
 end
