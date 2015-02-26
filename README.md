@@ -106,3 +106,4 @@ You should see the total number of assignments next to each person
 
 * [collection_select](http://api.rubyonrails.org/classes/ActionView/Helpers/FormOptionsHelper.html#method-i-collection_select)
 * [custom validations](http://guides.rubyonrails.org/active_record_validations.html#custom-methods)
+# staff-assignments
