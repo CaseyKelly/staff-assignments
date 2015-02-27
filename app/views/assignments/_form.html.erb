@@ -1,4 +1,11 @@
 <%= form_for [@person, @assignment], html: {:class => "form-horizontal"} do |f|  %>
+
+  <% if flash[:alert] %>
+    <div class="alert alert-danger">
+      <%= flash[:alert] %>
+    </div>
+    <% end %>
+
     <div class="form-group">
       <div class="field">
         <%= f.label :location_id, :class => 'control-label col-md-2' %>

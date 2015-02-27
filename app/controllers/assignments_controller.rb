@@ -17,7 +17,8 @@ class AssignmentsController < ApplicationController
       if @assignment.save
        redirect_to person_path(@person)
       else
-       render :new
+        flash[:alert] = 'Nope'
+        render :new
       end
   end
 
@@ -43,7 +44,7 @@ class AssignmentsController < ApplicationController
 
    private
    def assignment_params
-     params.require(:assignment).permit(:role)
+     params.require(:assignment).permit(:role, :location_id)
    end
 
    def set_person
