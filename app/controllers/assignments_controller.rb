@@ -7,7 +7,9 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = Assignment.new(assignment_params)
+    @location = Location.find(params[:location_id])
     @assignment.person_id = @person.id
+    @assignment.location_id = @location.id
       if @assignment.save
        redirect_to person_path(@person)
       else
@@ -16,11 +18,12 @@ class AssignmentsController < ApplicationController
   end
 
   def destroy
-    @assignment = Assignment.find(params[:id])
-   @assignment.person_id = params[:person_id]
-   @assignment.destroy
+    # @assignment = Assignment.find(params[:id])
+    @assignment.person_id = params[:person_id]
+    @assignment.location_id = params[:location_id]
+    @assignment.destroy
      redirect_to person_path(@person), notice: 'Task was successfully destroyed.'
-   end
+  end
 
    private
    def assignment_params
