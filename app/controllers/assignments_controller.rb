@@ -9,7 +9,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
     @assignment.person_id = @person.id
       if @assignment.save
-       redirect_to person_assignments_path(@person)
+       redirect_to person_path(@person)
       else
        render :new
       end
