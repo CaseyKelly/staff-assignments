@@ -11,13 +11,11 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = Assignment.new(assignment_params)
-    @location = Location.find(params[:assignment][:location_id])
     @assignment.person_id = @person.id
-    @assignment.location_id = @location.id
       if @assignment.save
        redirect_to person_path(@person)
       else
-        flash[:alert] = 'Nope'
+        flash.now[:alert] = 'Assignment couldn\'t be created'
         render :new
       end
   end
@@ -44,7 +42,7 @@ class AssignmentsController < ApplicationController
 
    private
    def assignment_params
-     params.require(:assignment).permit(:role, :location_id)
+     params.require(:assignment).permit(:role, :location_id, :person_id)
    end
 
    def set_person
