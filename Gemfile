@@ -9,7 +9,8 @@ gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'bcrypt'
 gem 'bootstrap-sass'
-
+gem 'pry-rails'
+gem 'pry-byebug'
 group :development, :test do
   gem "rspec-rails"
   gem 'rspec-collection_matchers'

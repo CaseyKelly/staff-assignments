@@ -7,7 +7,7 @@ class AssignmentsController < ApplicationController
 
   def create
     @assignment = Assignment.new(assignment_params)
-    @location = Location.find(params[:location_id])
+    @location = Location.find(params[:assignment][:location_id])
     @assignment.person_id = @person.id
     @assignment.location_id = @location.id
       if @assignment.save
