@@ -10,6 +10,7 @@ class PeopleController < ApplicationController
   end
 
   def show
+    @assignments = @person.assignments
   end
 
   def edit
